@@ -1,0 +1,9 @@
+.login-form {
+    max-width: 300px;
+    width:30%;
+    height:100px; 
+    left: 0;  
+    right: 0;  
+    margin:100px auto !important; 
+    text-align: center;  
+}
