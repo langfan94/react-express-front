@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.todoClass li{
+  cursor: pointer;
+}
+
+.todoClass .activeLi{
+  color: #40a9ff;
+}
+
+.todoClass li span:hover{
+  color: #40a9ff;
+}

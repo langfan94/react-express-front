@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'antd/dist/antd.css';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import todoApp from './reducers/index.js'
+import { addTodo } from './action/index.js'
+
 import { fakeAuth } from './components/common/fakeAuth'
 
 // import registerServiceWorker from './registerServiceWorker';
@@ -28,13 +33,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )}/>
 )
 
+let store = createStore(todoApp)
+
+
+store.dispatch(addTodo('Learn about actions'));
+
+
 ReactDOM.render(
-    <Router>
-        <div>
-            <PrivateRoute path="/" exact component={App}/>
-            <Route path="/login" component={Login}/>
-        </div>
-    </Router> 
+    <Provider store={store}>
+        <Router>
+            <div>
+                <PrivateRoute path="/" exact component={App}/>
+                <Route path="/login" component={Login}/>
+            </div>
+        </Router> 
+    </Provider>
     ,document.getElementById('root')
 );
 // registerServiceWorker();
